@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>kraft</id>
+	<name>Kraft</name>
+	<description>The Kraft-goes-ownCloud app, a support application for the Kraft desktop application.</description>
+	<version>1.0</version>
+	<licence>AGPL</licence>
+	<author>Klaas Freitag</author>
+	<require>4</require>
+</info>
