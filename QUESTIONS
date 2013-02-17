@@ -1,7 +1,7 @@
 Questions:
 
-- how do I call Ajax functions?
-- no default styles for an app?
-- app specific configuration values?
-- apps routing, configuration wrong?
-- JSON module?!
+- how do I call Ajax functions? - jQuery ;P
+- no default styles for an app? - nope :P
+- app specific configuration values? OCP\Config ;)
+- apps routing, configuration wrong? - appinfo/routes.php ;)
+- JSON module?! - \OCP\JSON ;)
