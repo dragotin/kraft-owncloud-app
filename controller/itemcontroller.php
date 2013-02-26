@@ -110,9 +110,9 @@ class ItemController extends Controller {
 	
 	/**
 	 * todo - add doc
+	 * @CSRFExemption
 	 */ 
 	public function handleRemoteRequest(){
-		echo "handleRemoteRequest called";
 		$cmd = $this->params('cmd');
 		$doctype = $this->params('doctype');
 		var_dump($cmd);
