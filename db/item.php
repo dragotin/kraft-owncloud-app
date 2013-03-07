@@ -14,8 +14,9 @@ class Item {
 
 	private $id;
 	private $name;
-	private $path;
 	private $user;
+	private $value;
+	private $template;
 
 	public function __construct($fromRow=null){
 		if($fromRow){
@@ -26,8 +27,9 @@ class Item {
 	public function fromRow($row){
 		$this->id = $row['id'];
 		$this->name = $row['name'];
-		$this->path = $row['path'];
 		$this->user = $row['user'];
+		$this->value = $row['value'];
+		$this->template = $row['template'];
 	}
 
 
@@ -43,8 +45,12 @@ class Item {
 		return $this->user;
 	}
 
-	public function getPath(){
-		return $this->path;
+	public function getValue(){
+		return $this->value;
+	}
+
+	public function getTemplate(){
+		return $this->template;
 	}
 
 
@@ -60,8 +66,12 @@ class Item {
 		$this->user = $user;
 	}
 
-	public function setPath($path){
-		$this->path = $path;
+	public function setValue($value){
+		$this->value = $value;
+	}
+
+	public function setTemplate($template){
+		$this->template = $template;
 	}
 
 }
