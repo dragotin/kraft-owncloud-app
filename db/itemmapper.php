@@ -81,13 +81,14 @@ class ItemMapper extends Mapper {
 	 * @return the item with the filled in id
 	 */
 	public function save($item){
-		$sql = 'INSERT INTO `'. $this->tableName . '`(`name`, `user`, `path`)'.
-				' VALUES(?, ?, ?)';
+		$sql = 'INSERT INTO `'. $this->tableName . '`(`user`, `name`, `value`, `template`)'.
+				' VALUES(?, ?, ?, ?)';
 
 		$params = array(
-			$item->getName(),
 			$item->getUser(),
-			$item->getPath()
+			$item->getName(),
+			$item->getValue(),
+			$item->getTemplate()
 		);
 
 		$this->execute($sql, $params);
@@ -102,15 +103,17 @@ class ItemMapper extends Mapper {
 	 */
 	public function update($item){
 		$sql = 'UPDATE `'. $this->tableName . '` SET
-				`name` = ?,
 				`user` = ?,
-				`path` = ?
+				`name` = ?,
+				`value` = ?,
+				`template` = ?
 				WHERE `id` = ?';
 
 		$params = array(
-			$item->getName(),
 			$item->getUser(),
-			$item->getPath(),
+			$item->getName(),
+			$item->getValue(),
+			$item->getTemplate(),
 			$item->getId()
 		);
 
@@ -126,5 +129,11 @@ class ItemMapper extends Mapper {
 		$this->deleteQuery($this->tableName, $id);
 	}
 
-
+	public function incValue($item){
+		$value = $item->getValue();
+		$value++;
+		$item->setValue($value);
+		
+		$this->update($item);
+	}
 }
