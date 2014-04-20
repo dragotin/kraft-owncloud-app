@@ -10,21 +10,16 @@
 namespace OCA\Kraft\Db;
 
 use \OCA\AppFramework\Core\API;
-use \OCA\AppFramework\Db\Mapper;
 use \OCA\AppFramework\Db\DoesNotExistException;
 
 
 class ItemMapper extends Mapper {
 
-
-	private $tableName;
-
 	/**
 	 * @param API $api: Instance of the API abstraction layer
 	 */
-	public function __construct($api){
-		parent::__construct($api);
-		$this->tableName = '*PREFIX*kraft_nc';
+	public function __construct($app, $tablename = 'kraft_nc'){
+		parent::__construct($app, $tablename);
 	}
 
 
@@ -96,38 +91,6 @@ class ItemMapper extends Mapper {
 		$item->setId($this->api->getInsertId($this->tableName));
 	}
 
-
-	/**
-	 * Updates an item
-	 * @param Item $item: the item to be updated
-	 */
-	public function update($item){
-		$sql = 'UPDATE `'. $this->tableName . '` SET
-				`user` = ?,
-				`name` = ?,
-				`value` = ?,
-				`template` = ?
-				WHERE `id` = ?';
-
-		$params = array(
-			$item->getUser(),
-			$item->getName(),
-			$item->getValue(),
-			$item->getTemplate(),
-			$item->getId()
-		);
-
-		$this->execute($sql, $params);
-	}
-
-
-	/**
-	 * Deletes an item
-	 * @param int $id: the id of the item
-	 */
-	public function delete($id){
-		$this->deleteQuery($this->tableName, $id);
-	}
 
 	public function incValue($item){
 		$value = $item->getValue();

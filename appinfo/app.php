@@ -8,7 +8,7 @@
 OCP\App::addNavigationEntry( array( 
 	'id' => 'kraft',
 	'order' => 11,
-	'href' => OCP\Util::linkToRoute( 'kraft_index' ),
-	'icon' => OCP\Util::imagePath( 'kraft', 'kraft.png' ),
+	'href' => OCP\Util::linkToRoute('kraft_index'),
+	'icon' => OCP\Util::imagePath('kraft', 'kraft.png'),
 	'name' => 'Kraft'
 ));
