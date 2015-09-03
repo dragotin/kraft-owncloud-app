@@ -1,3 +1,6 @@
+<div id="controls"></div>
+<div id="leftcontent"></div>
+<div id="rightcontent">
 <h1>Kraft - Business Documents in the small Business</h1>
 
 <?php echo $l->t('Kraft Document Path: ');?>: <?php echo $_['kraft_doc_path']; ?>
@@ -14,3 +17,4 @@ if(empty($_['docs'])) {
     echo('</table>');
 }
 ?>
+</div>
